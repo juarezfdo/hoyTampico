@@ -2,6 +2,7 @@
 
 namespace hoyTampico\Http\Controllers;
 
+use hoyTampico\Usuario;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -34,7 +35,15 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new Usuario();
+        $usuario->nombre = $request->input('nombre');
+        $usuario->aPaterno = $request->input('aPaterno');
+        $usuario->aMaterno = $request->input('aMaterno');
+        $usuario->email = $request->input('email');
+        $usuario->password = $request->input('password');
+        $usuario->telefono = $request->input('telefono');
+        $usuario->movil = $request->input('movil');
+        $usuario->save();
     }
 
     /**

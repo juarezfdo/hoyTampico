@@ -21,8 +21,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="fecha">Fecha</label>
-                <input type="date" name="fecha" class="form-control" id="fecha" width="276">
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" name="fecha" class="form-control" id="fecha">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
