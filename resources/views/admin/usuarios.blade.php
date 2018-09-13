@@ -4,40 +4,39 @@
 
 @section('body')
     <h4>Usuarios Registrados</h4>
+    <br>
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="card text-center" style="width: 20rem; margin-top: 10px">
-                  <img style="height: 100px;width: 100px; background-color: #efefef;margin:20px" class="card-img-top rounded-circle mx-auto d-block" src="images/t.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Funcionario 1</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Editar</a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card text-center" style="width: 20rem; margin-top: 10px">
-                  <img style="height: 100px;width: 100px; background-color: #efefef;margin:20px" class="card-img-top rounded-circle mx-auto d-block" src="images/t.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Funcionario 2</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Editar</a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card text-center" style="width: 20rem; margin-top: 10px">
-                  <img style="height: 100px;width: 100px; background-color: #efefef;margin:20px" class="card-img-top rounded-circle mx-auto d-block" src="images/t.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Funcionario 3</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Editar</a>
-                  </div>
-                </div>
-            </div>
-        </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre(s)</th>
+            <th scope="col">Apellido Paterno</th>
+            <th scope="col">Apellido Materno</th>
+            <th scope="col">eMail</th>
+            <th scope="col">Contraseña</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Móvil</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($usuarios as $usuario)
+            <tr>
+              <th scope="row">{{$usuario->id}}</th>
+              <td>{{$usuario->nombre}}</td>
+              <td>{{$usuario->aPaterno}}</td>
+              <td>{{$usuario->aMaterno}}</td>
+              <td>{{$usuario->email}}</td>
+              <td>{{$usuario->password}}</td>
+              <td>{{$usuario->telefono}}</td>
+              <td>{{$usuario->movil}}</td>
+              <td><a href="#" class="btn btn-primary">Editar</a></td>
+              <td><a class="btn btn-primary" href="#">Eliminar</a></td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
     </div>
-    
-    
 @endsection
