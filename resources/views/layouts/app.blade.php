@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 	<title>Tampico - @yield('title')</title>
 </head>
 <body>
@@ -78,6 +80,12 @@
             $(this).addClass("active");
         });
         });
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('#myModal').on('shown.bs.modal', function () {
+          $('#myInput').trigger('focus')
+        })
     </script>
 </div>  
 

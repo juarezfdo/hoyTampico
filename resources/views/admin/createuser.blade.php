@@ -36,6 +36,15 @@
                         <input class="form-control" type="text" id="password" name="password" placeholder="xxxxxxxxxxx"></input>
                         <small id="_contraseña" class="form-text text-muted text-center">Contraseña</small>
                     </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Usuario</label>
+                            <select class="form-control" id="tipo">
+                                <option value="Administrador">Administrador</option>
+                                <option value="Funcionario">Funcionario</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -50,7 +59,6 @@
                         <small id="_telefono" class="form-text text-muted text-center">Teléfono Móvil</small>
                     </div>
                 </div>
-                
             </div>
 
             <button type="submit" class="btn btn-primary">Guardar</button>
