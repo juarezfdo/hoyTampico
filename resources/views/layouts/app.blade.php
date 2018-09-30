@@ -56,7 +56,7 @@
 
 	            <button type="button" id="sidebarCollapse" class="btn btn-info">
 	                <i class="fas fa-align-left"></i>
-	                <span>Menú</span>
+	                <i class="material-icons">menu</i></button>
 	            </button>
 
 	        </div>
@@ -87,7 +87,6 @@
           $('#myInput').trigger('focus')
         })
     </script>
-</div>  
-
+</div> 
 </body>
 </html>

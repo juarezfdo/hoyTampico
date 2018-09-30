@@ -19,6 +19,8 @@
           </tr>
         </thead>
         <tbody>
+
+
           @foreach($usuarios as $usuario)
             <tr>
               <td>{{$usuario->nombre.' '.$usuario->aPaterno.' '.$usuario->aMaterno}}</td>
@@ -27,12 +29,14 @@
               <td>{{$usuario->telefono}}</td>
               <td>{{$usuario->movil}}</td>
               <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                  <i class="material-icons">find_in_page</i></button>
+                <button href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  <i class="material-icons">remove_red_eye</i></button>
               <a href="#" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="material-icons">edit</i></a>
               <a class="btn btn-primary" href="#" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="material-icons ">delete</i></a></td>
             </tr>
           @endforeach
+
+
         </tbody>
       </table>
       <!-- Button trigger modal -->

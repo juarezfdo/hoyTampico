@@ -30,13 +30,9 @@
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Resúmen de la noticia" rows="7"></textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Resúmen de la noticia" rows="8"></textarea>
             </div>
-            <div class="form-group">
-                <label for="archivo">Adjuntar fotografia (opcional)</label>
-                <input type="file" class="form-control-file" id="archivo" name="archivo">
-            </div>
-
+            <br>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </form>
