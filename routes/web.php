@@ -26,3 +26,6 @@ Route::get('/login', function () {
 Route::get('/funcionario', function () {
     return view('admin.funcionario');
 });
+Route::get('/pruebafuncionario', function () {
+    return view('admin.pruebafuncionario');
+});

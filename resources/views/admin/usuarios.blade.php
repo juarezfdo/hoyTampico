@@ -17,7 +17,7 @@
             <th scope="col">Contraseña</th>
             <th scope="col">Teléfono</th>
             <th scope="col">Móvil</th>
-            <th scope="col"></th>
+            <th scope="col">Opciones</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -32,9 +32,9 @@
               <td>{{$usuario->telefono}}</td>
               <td>{{$usuario->movil}}</td>
               <td>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"  data-target="#show">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-rol="{{$usuario->rol}}"data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"  data-target="#show">
                   <i class="material-icons">remove_red_eye</i></button>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit" data-user_id="{{$usuario->id}}"data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit" data-user_id="{{$usuario->id}}" data-rol="{{$usuario->rol}}" data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"><i class="material-icons">edit</i></button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" data-user_id="{{$usuario->id}}"><i class="material-icons">delete</i></button>
             </tr>
           @endforeach
@@ -58,8 +58,8 @@
           @include('admin.createuser')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
       </form>
     </div>
@@ -83,8 +83,8 @@
           @include('admin.createuser')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
       </form>
     </div>
@@ -155,6 +155,9 @@
                       <small class="form-text text-muted text-center">Celular</small>
                     </div>
                   </div>
+              </div>
+              <div class="form-group"> 
+                  Tipo de Usuario <input type="text" name="rol" id="rol" class="form-control" readonly>
               </div>
             </form>
           

@@ -2,6 +2,7 @@
 
 namespace hoyTampico\Http\Controllers;
 
+use hoyTampico\Noticia;
 use Illuminate\Http\Request;
 
 class newsController extends Controller
@@ -13,7 +14,8 @@ class newsController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $noticias = Noticia::all();/*Consultar usuarios y traerlos*/
+        return view('admin.pruebafuncionario',compact('noticias'));/*compact genera un array*/
     }
 
     /**
@@ -34,7 +36,15 @@ class newsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $noticia = new Noticia();
+        $noticia->titulo = $request->input('titulo');
+        $noticia->subtitulo = $request->input('subtitulo');
+        $noticia->fecha = $request->input('fecha');
+        $noticia->descripcion = $request->input('descripcion');
+        
+        $noticia->save();
+
+        return back();
     }
 
     /**
@@ -66,9 +76,11 @@ class newsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $noticias = Noticia::findOrFail($request->noticia_id);
+        $noticias->update($request->all());
+        return back();
     }
 
     /**
@@ -77,8 +89,10 @@ class newsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $noticias = Noticia::findOrFail($request->noticia_id);
+        $noticias->delete();
+        return back();
     }
 }

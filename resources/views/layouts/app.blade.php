@@ -36,7 +36,7 @@
                 <a href="{{ url('usuario') }}">Usuarios</a>
             </li>
             <li>
-                <a href="#">Ver como funcionario</a>
+                <a href="{{ url('noticias') }}">Ver como funcionario</a>
             </li>
         </ul>
     </nav>
@@ -82,6 +82,12 @@
               var modal = $(this)
               modal.find('.modal-body #user_id').val(user_id);
         })
+         $('#eliminar').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget) 
+              var noticia_id = button.data('noticia_id') 
+              var modal = $(this)
+              modal.find('.modal-body #noticia_id').val(noticia_id);
+        })
 
         $('#show').on('show.bs.modal', function (event) {
               var button = $(event.relatedTarget) 
@@ -92,9 +98,8 @@
               var password = button.data('password') 
               var telefono = button.data('telefono')
               var movil = button.data('movil')
+              var rol = button.data('rol')
 
-
-              console.log(aPaterno)
 
               var modal = $(this)
               modal.find('.modal-body #nombre').val(nombre+' '+aPaterno+' '+aMaterno);
@@ -102,6 +107,23 @@
               modal.find('.modal-body #password').val(password);
               modal.find('.modal-body #telefono').val(telefono);
               modal.find('.modal-body #movil').val(movil);
+              modal.find('.modal-body #rol').val(rol);
+        })
+        $('#editar').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget) 
+              var noticia_id = button.data('noticia_id')
+              var titulo = button.data('titulo')
+              var subtitulo = button.data('subtitulo')
+              var fecha = button.data('fecha') 
+              var descripcion = button.data('descripcion') 
+        
+              var modal = $(this)
+              modal.find('.modal-body #titulo').val(titulo);
+              modal.find('.modal-body #subtitulo').val(subtitulo);
+              modal.find('.modal-body #fecha').val(fecha);
+              modal.find('.modal-body #noticia_id').val(noticia_id);
+              modal.find('.modal-body #descripcion').val(descripcion);
+              
         })
         $('#edit').on('show.bs.modal', function (event) {
               var button = $(event.relatedTarget) 
@@ -113,6 +135,7 @@
               var password = button.data('password') 
               var telefono = button.data('telefono')
               var movil = button.data('movil')
+              var rol = button.data('rol')
 
               console.log(user_id)
               var modal = $(this)
@@ -124,6 +147,7 @@
               modal.find('.modal-body #telefono').val(telefono);
               modal.find('.modal-body #movil').val(movil);
               modal.find('.modal-body #user_id').val(user_id);
+              modal.find('.modal-body #rol').val(rol);
         })
     </script>
 </div> 

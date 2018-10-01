@@ -44,6 +44,7 @@ class userController extends Controller
         $usuario->password = $request->input('password');
         $usuario->telefono = $request->input('telefono');
         $usuario->movil = $request->input('movil');
+        $usuario->rol = $request->input('rol');
         $usuario->save();
 
         return back();

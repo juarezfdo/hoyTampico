@@ -90,9 +90,6 @@
 		</div>
 		<br>
 
-		<div class="embed-responsive embed-responsive-1by1">
-  			<iframe class="embed-responsive-item" src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"></iframe>
-		</div>
 	</div>
 
 	    @yield('body')

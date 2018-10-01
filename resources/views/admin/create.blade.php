@@ -4,8 +4,8 @@
 @section('encabezado','Generador de Noticias')
 
 @section('body')
-    <form class="form-group" method="POST" action="/noticias/create">
-        @csrf
+    <form action="{{route('noticias.store')}}" method="post">
+          {{csrf_field()}}
         <div class="container">
             <div class="form-group">
                 <label for="titulo">Encabezado de la noticia</label>
@@ -15,14 +15,14 @@
                         <small id="_titulo" class="form-text text-muted text-center">Título</small>
                     </div>
                     <div class="col-sm">
-                        <input class="form-control" type="text" id="titulo" name="titulo" placeholder="Subtítulo"></input>
+                        <input class="form-control" type="text" id="subtitulo" name="subtitulo" placeholder="Subtítulo"></input>
                         <small id="_subtitulo" class="form-text text-muted text-center">Subtítulo</small>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-sm-4">
                         <label for="fecha">Fecha</label>
                         <input type="date" name="fecha" class="form-control" id="fecha">
                     </div>

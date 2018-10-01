@@ -31,7 +31,8 @@
         <div class="col-sm">
             <div class="form-group">
                 <label for="tipo">Tipo de Usuario</label>
-                <select class="form-control" id="tipo">
+                <select class="form-control" id="rol" name="rol">
+                    <option value="">Seleccione</option>
                     <option value="Administrador">Administrador</option>
                     <option value="Funcionario">Funcionario</option>
                 </select>
