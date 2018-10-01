@@ -30,21 +30,13 @@
 	  	<ul class="list-unstyled components">
             <p class="text-center h3">Tampico</p>
             <li class="{{ Request::is('/') ? 'active' : '' }}">
-                <a href="{{ url('noticias/create') }}">Crear Noticia</a>
+                <a href="{{ url('noticias/create') }}">Noticias</a>
             </li>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="{{ url('usuario/create') }}">Crear Usuario</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('usuario') }}">Usuarios Registrados</a>
-                    </li>
-                </ul>
+                <a href="{{ url('usuario') }}">Usuarios</a>
             </li>
             <li>
-                <a href="#">Historial de Noticias</a>
+                <a href="#">Ver como funcionario</a>
             </li>
         </ul>
     </nav>
@@ -58,6 +50,7 @@
 	                <i class="fas fa-align-left"></i>
 	                <i class="material-icons">menu</i></button>
 	            </button>
+              <h4>@yield('encabezado')</h4>
 
 	        </div>
 	    </nav>
@@ -83,8 +76,54 @@
         $(function () {
           $('[data-toggle="tooltip"]').tooltip()
         })
-        $('#myModal').on('shown.bs.modal', function () {
-          $('#myInput').trigger('focus')
+         $('#delete').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget) 
+              var user_id = button.data('user_id') 
+              var modal = $(this)
+              modal.find('.modal-body #user_id').val(user_id);
+        })
+
+        $('#show').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget) 
+              var nombre = button.data('name')
+              var aPaterno = button.data('pat')
+              var aMaterno = button.data('mat') 
+              var email = button.data('email') 
+              var password = button.data('password') 
+              var telefono = button.data('telefono')
+              var movil = button.data('movil')
+
+
+              console.log(aPaterno)
+
+              var modal = $(this)
+              modal.find('.modal-body #nombre').val(nombre+' '+aPaterno+' '+aMaterno);
+              modal.find('.modal-body #email').val(email);
+              modal.find('.modal-body #password').val(password);
+              modal.find('.modal-body #telefono').val(telefono);
+              modal.find('.modal-body #movil').val(movil);
+        })
+        $('#edit').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget) 
+              var user_id = button.data('user_id')
+              var nombre = button.data('name')
+              var aPaterno = button.data('pat')
+              var aMaterno = button.data('mat') 
+              var email = button.data('email') 
+              var password = button.data('password') 
+              var telefono = button.data('telefono')
+              var movil = button.data('movil')
+
+              console.log(user_id)
+              var modal = $(this)
+              modal.find('.modal-body #nombre').val(nombre);
+              modal.find('.modal-body #aPaterno').val(aPaterno);
+              modal.find('.modal-body #aMaterno').val(aMaterno);
+              modal.find('.modal-body #email').val(email);
+              modal.find('.modal-body #password').val(password);
+              modal.find('.modal-body #telefono').val(telefono);
+              modal.find('.modal-body #movil').val(movil);
+              modal.find('.modal-body #user_id').val(user_id);
         })
     </script>
 </div> 

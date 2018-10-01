@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title','Crear Noticia')
+@section('title','Noticias')
+@section('encabezado','Generador de Noticias')
 
 @section('body')
-    <h4>Generador de Noticias</h4>
     <form class="form-group" method="POST" action="/noticias/create">
         @csrf
         <div class="container">

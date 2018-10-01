@@ -24,8 +24,8 @@ class userController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.createuser');
+    { 
+        return back();
     }
 
     /**
@@ -45,6 +45,8 @@ class userController extends Controller
         $usuario->telefono = $request->input('telefono');
         $usuario->movil = $request->input('movil');
         $usuario->save();
+
+        return back();
     }
 
     /**
@@ -76,9 +78,11 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $usuario = Usuario::findOrFail($request->user_id);
+        $usuario->update($request->all());
+        return back();
     }
 
     /**
@@ -87,8 +91,10 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $usuario = Usuario::findOrFail($request->user_id);
+        $usuario->delete();
+        return back();
     }
 }
