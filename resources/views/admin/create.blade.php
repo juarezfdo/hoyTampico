@@ -1,9 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
 @section('title','Noticias')
 @section('encabezado','Generador de Noticias')
 
 @section('body')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                <h4 class="alert-heading">¡Noticia no Almacenada! </h4>
+                Complete todos los datos para continuar
+            </ul>
+        </div>
+    @endif
     <form action="{{route('noticias.store')}}" method="post">
           {{csrf_field()}}
         <div class="container">

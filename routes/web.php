@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('welcome');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
 });
 
 Route::resource('noticias','newsController');
@@ -29,3 +33,15 @@ Route::get('/funcionario', function () {
 Route::get('/pruebafuncionario', function () {
     return view('admin.pruebafuncionario');
 });
+Route::post('login','Auth\LoginController@login')->name('login');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

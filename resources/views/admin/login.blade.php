@@ -7,33 +7,30 @@
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<div class="container" style="
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  max-width: 100%;
-  max-height: 100%;
-  display: table;">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<div class="container">
 		<div class="card card-container">
-			<center><H2>Noticias Tampico</H2>
-				<br>
-			<form>
-				<div class="form-group col-md-5">
-					<label>Correo Electronico</label>
-					<input type="email" name="email" class="form-control" id="email" placeholder="Correo Electrónico">
+			<form method="POST" action="{{route('login')}}">
+				{{csrf_field()}}
+				<div class="card-header">
+					Accesso a la Aplicacion
 				</div>
-				<div class="form-group col-md-5">
-					<label>Contraseña</label>
-					<input type="password" name="password" class="form-control" placeholder="Contraseña">
+				<div class="card-body">
+					<div class="form-group {{ $errors->has('email')? 'has-error':''}}">
+						<label for="email">Correo Electronico</label>
+						<input type="email" name="email" class="form-control" id="email" placeholder="Ingresa tu correo" value="{{old('email')}}">
+						{!! $errors->first('email','<span class="help-block">:message</span>') !!}
+					</div>
+					<div class="form-group">
+						<label>Contraseña</label>
+						<input type="password" name="password" class="form-control" placeholder="Ingresa tu contraseña">
+						{!! $errors->first('password','<span class="help-block">:message</span>') !!}
+					</div>
 				</div>
-				<div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me">Recordarme
-                    </label>
-                </div>
-				<button type="submit" class="btn btn-primary" style="">Entrar</button>
+
+				<button type="submit" class="btn btn-primary btn-block">Acceder</button>
 			</form>
 			</center>
 		</div>
@@ -41,7 +38,5 @@
 	</div>
 
 </body>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
 </html>

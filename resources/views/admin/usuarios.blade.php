@@ -1,10 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
 @section('title','Usuarios')
 @section('encabezado','Registro de Usuarios')
 
 @section('body')
     <div class="container">
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                <h4 class="alert-heading">¡Usuario no Almacenado! </h4>
+                Complete todos los Datos para Continuar
+            </ul>
+        </div>
+    @endif
       <div class="d-flex flex-row-reverse bd-highlight">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create"><i class="material-icons">person_add</i> Añadir</button>
       </div>
@@ -38,7 +46,6 @@
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" data-user_id="{{$usuario->id}}"><i class="material-icons">delete</i></button>
             </tr>
           @endforeach
-
 
         </tbody>
       </table>

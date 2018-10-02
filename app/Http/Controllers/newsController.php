@@ -12,8 +12,9 @@ class newsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request){
+        $request->user()->authorizeRoles('admin');
+
         $noticias = Noticia::all();/*Consultar usuarios y traerlos*/
         return view('admin.pruebafuncionario',compact('noticias'));/*compact genera un array*/
     }
@@ -23,8 +24,9 @@ class newsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->user()->authorizeRoles('admin');
         return view('admin.create');
     }
 
@@ -36,6 +38,12 @@ class newsController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'titulo' => 'required',
+            'subtitulo' => 'required',
+            'fecha' => 'required',
+            'descripcion' => 'required'
+        ]);
         $noticia = new Noticia();
         $noticia->titulo = $request->input('titulo');
         $noticia->subtitulo = $request->input('subtitulo');

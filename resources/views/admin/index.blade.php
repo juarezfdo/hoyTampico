@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('title','Crear Noticia')
+@section('title','Portal de Noticias')
 
 @section('body')
     <h2 class="text-center">Portal de Noticias de Tampico</h2>

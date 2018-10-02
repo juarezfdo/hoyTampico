@@ -12,8 +12,9 @@ class userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles('admin');
         $usuarios = Usuario::all();/*Consultar usuarios y traerlos*/
         return view('admin.usuarios',compact('usuarios'));/*compact genera un array*/
     }
@@ -36,6 +37,16 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'nombre' => 'required|max:50',
+            'aPaterno' => 'required|max:50',
+            'aMaterno' => 'required|max:50',
+            'email' => 'required|email',
+            'password' => 'required|max:50',
+            'telefono' => 'required',
+            'movil' => 'required',
+            'rol' => 'required'
+        ]);
         $usuario = new Usuario();
         $usuario->nombre = $request->input('nombre');
         $usuario->aPaterno = $request->input('aPaterno');
