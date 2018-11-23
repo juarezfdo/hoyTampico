@@ -44,11 +44,11 @@
     <label for="telefono">Datos de Contacto</label>
     <div class="row">
         <div class="col-sm">
-            <input type="tel" name="telefono" class="form-control" id="telefono">
+            <input type="number" name="telefono" class="form-control" id="telefono">
             <small id="_telefono" class="form-text text-muted text-center">Teléfono de Oficina</small>
         </div>
         <div class="col-sm">
-            <input type="tel" name="movil" class="form-control" id="movil">
+            <input type="number" name="movil" class="form-control" id="movil">
             <small id="_telefono" class="form-text text-muted text-center">Teléfono Móvil</small>
         </div>
     </div>

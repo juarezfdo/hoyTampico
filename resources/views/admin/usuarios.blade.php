@@ -42,8 +42,12 @@
               <td>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-rol="{{$usuario->rol}}"data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"  data-target="#show">
                   <i class="material-icons">remove_red_eye</i></button>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit" data-user_id="{{$usuario->id}}" data-rol="{{$usuario->rol}}" data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"><i class="material-icons">edit</i></button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" data-user_id="{{$usuario->id}}"><i class="material-icons">delete</i></button>
+                
+                <!--
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit" data-user_id="{{$usuario->email}}" data-rol="{{$usuario->rol}}" data-name="{{$usuario->nombre}}" data-pat="{{$usuario->aPaterno}}" data-mat="{{$usuario->aMaterno}}" data-email="{{$usuario->email}}" data-password="{{$usuario->password}}" data-telefono="{{$usuario->telefono}}" data-movil="{{$usuario->movil}}"><i class="material-icons">edit</i></button> -->
+
+
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete" data-user_id="{{$usuario->email}}"><i class="material-icons">delete</i></button>
             </tr>
           @endforeach
 

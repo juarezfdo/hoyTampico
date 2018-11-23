@@ -1,48 +1,91 @@
 @extends('layouts.plantilla')
 
 @section('title','Noticias')
-@section('encabezado','Generador de Noticias')
+@section('encabezado','Gestion de Tareas')
 
 @section('body')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                <h4 class="alert-heading">¡Noticia no Almacenada! </h4>
-                Complete todos los datos para continuar
-            </ul>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Activo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Inactivo</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">Titulo</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Cargos</th>
+                  <th scope="col">Disponible desde</th>
+                  <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>    
+                  <th>adam test</th>
+                  <th>Register</th>
+                  <th>Activo</th>
+                  <th>$344.00 USD</th>
+                  <th>Fri 31th January 2018</th>
+                  <th><a class="btn btn-default btn-xs lw-btn" title="Actualizar Estado" href=""><i class="fa fa-pencil-square-o"></i> Editar</a>
+                    <a class="btn btn-default btn-xs lw-btn" title="Asignar usuario" href=""><i class="fa fa-remove"></i> Borrar</a></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item inactive"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
         </div>
-    @endif
-    <form action="{{route('noticias.store')}}" method="post">
-          {{csrf_field()}}
-        <div class="container">
-            <div class="form-group">
-                <label for="titulo">Encabezado de la noticia</label>
-                <div class="row">
-                    <div class="col-sm">
-                        <input class="form-control" type="text" id="titulo" name="titulo" placeholder="Título"></input>
-                        <small id="_titulo" class="form-text text-muted text-center">Título</small>
-                    </div>
-                    <div class="col-sm">
-                        <input class="form-control" type="text" id="subtitulo" name="subtitulo" placeholder="Subtítulo"></input>
-                        <small id="_subtitulo" class="form-text text-muted text-center">Subtítulo</small>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label for="fecha">Fecha</label>
-                        <input type="date" name="fecha" class="form-control" id="fecha">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Resúmen de la noticia" rows="8"></textarea>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                  <th scope="col">Titulo</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Cargos</th>
+                  <th scope="col">Disponible desde</th>
+                  <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>    
+                  <th>adam test</th>
+                  <th>Register</th>
+                  <th>Activo</th>
+                  <th>$344.00 USD</th>
+                  <th>Fri 31th January 2018</th>
+                  <th><a class="btn btn-default btn-xs lw-btn" title="Actualizar Estado" href=""><i class="fa fa-pencil-square-o"></i> Editar</a>
+                    <a class="btn btn-default btn-xs lw-btn" title="Asignar usuario" href=""><i class="fa fa-remove"></i> Borrar</a></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item inactive"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
         </div>
-    </form>
+
+      </div>
+    </div>
     
 @endsection

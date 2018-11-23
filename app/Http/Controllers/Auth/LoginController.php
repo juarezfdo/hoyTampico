@@ -2,6 +2,11 @@
 namespace hoyTampico\Http\Controllers\Auth;
 use hoyTampico\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use hoyTampico\Usuario;
+use hoyTampico\Role;
+use hoyTampico\User;
+use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     /*
@@ -20,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/noticias/create';
+    #protected $redirectTo = '/noticias/create';
     /**
      * Create a new controller instance.
      *
@@ -29,5 +34,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectPath(){
+        if (auth()->user()->roles()->where('role_id','=','1')->first()) {
+            return '/noticias/create';
+        }
+        return '/funcionario';
+        
     }
 }

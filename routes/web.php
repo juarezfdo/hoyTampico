@@ -10,26 +10,37 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/funcionario/writing', function () {
+    return view('admin.writing');
+});
+Route::get('/funcionario/reading', function () {
+    return view('admin.reading');
+});
+Route::get('/funcionario/listening', function () {
+    return view('admin.listening');
+});
+Route::get('/funcionario/grammar', function () {
+    return view('admin.grammar');
+});
+
 Route::resource('noticias','newsController');
 
 Route::resource('usuario','userController');
+
+Route::resource('funcionario','FuncionarioController');
 
 Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/funcionario', function () {
-    return view('admin.funcionario');
-});
 Route::get('/pruebafuncionario', function () {
     return view('admin.pruebafuncionario');
 });

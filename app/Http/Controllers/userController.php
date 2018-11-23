@@ -3,6 +3,8 @@
 namespace hoyTampico\Http\Controllers;
 
 use hoyTampico\Usuario;
+use hoyTampico\Role;
+use hoyTampico\User;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -47,6 +49,22 @@ class userController extends Controller
             'movil' => 'required',
             'rol' => 'required'
         ]);
+
+        $role_user = Role::where('name','user')->first();
+        $role_admin = Role::where('name','admin')->first();
+
+        $user = new User();
+        $pass = $request->input('password');
+        $user->name=$request->input('nombre');
+        $user->email=$request->input('email');
+        $user->password=bcrypt($pass);
+        $user->save();
+        if ($request->input('rol')=='Administrador') {
+            $user->roles()->attach($role_admin);
+        }else{
+            $user->roles()->attach($role_user);
+        }
+
         $usuario = new Usuario();
         $usuario->nombre = $request->input('nombre');
         $usuario->aPaterno = $request->input('aPaterno');
@@ -105,8 +123,21 @@ class userController extends Controller
      */
     public function destroy(Request $request)
     {
-        $usuario = Usuario::findOrFail($request->user_id);
-        $usuario->delete();
+        if (User::where('email',$request->user_id)->first()) {
+            #$rol_id = (User::where('email',$request->user_id)->first())->id;
+            $user = User::where('email',$request->user_id)->first();
+            $rol_id = $user->id;
+            #return $user;
+            $user->roles()->wherePivot('user_id',$rol_id)->detach();
+            $user->delete();
+        }
+        
+        if (Usuario::where('email',$request->user_id)->first()) {
+            $usuario = Usuario::where('email',$request->user_id)->first();
+            $usuario->delete();        
+        }
+        
+
         return back();
     }
 }
